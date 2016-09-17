@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using CommandLine;
 
 namespace BulkPhotoEdit
@@ -19,6 +18,10 @@ namespace BulkPhotoEdit
             [Option('s', "shift-time",
                 HelpText = "Adjust date taken exif data by the given amount of time.")]
             public string ShiftTime { get; set; }
+
+            [Option('g', "geotag",
+                HelpText = "Tag the photos with the given latitude,longitude.")]
+            public string LatLon { get; set; }
 
             [ValueList(typeof(List<string>))]
             public List<string> FileNames { get; set; }
@@ -50,7 +53,16 @@ namespace BulkPhotoEdit
                         Console.Error.WriteLine("Invalid timespan string {0}", options.ShiftTime);
                     }
                 }
-                FixOrientation(filenames, options.FixOrientation, shift);
+                Coordinates? coords = null;
+                if (options.LatLon != null && options.LatLon.Length > 0)
+                {
+                    coords = Coordinates.TryParse(options.LatLon);
+                    if (coords == null)
+                    {
+                        Console.Error.WriteLine("Invalid coordinates string {0}", options.LatLon);
+                    }
+                }
+                FixOrientation(filenames, options.FixOrientation, shift, coords);
             }
             else
             {
@@ -81,12 +93,12 @@ namespace BulkPhotoEdit
         }
 
         private static void FixOrientation(
-            IEnumerable<string> filenames, bool fixOrientation, TimeSpan shift)
+            IEnumerable<string> filenames, bool fixOrientation, TimeSpan shift, Coordinates? coords)
         {
             ImageManipulation manip = new ImageManipulation();
             foreach (string filename in filenames)
             {
-                var rot = manip.AdjustImage(filename, fixOrientation, shift);
+                var rot = manip.AdjustImage(filename, fixOrientation, shift, coords);
                 if (rot.HasValue)
                 {
                     Console.WriteLine("Rotated {0} by {1}", filename, rot.Value);
