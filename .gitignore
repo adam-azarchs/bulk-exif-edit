@@ -1,0 +1,8 @@
+﻿/BulkPhotoEdit/bin
+/BulkPhotoEdit/obj
+/BulkPhotoEditGui/bin
+/BulkPhotoEditGui/obj
+/.vs
+/*.suo
+/packages
+*.csproj.user

@@ -1,7 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulkPhotoEdit", "BulkPhotoEdit\BulkPhotoEdit.csproj", "{8DB9B147-172A-4280-84B3-F4F51088F873}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulkPhotoEditGui", "BulkPhotoEditGui\BulkPhotoEditGui.csproj", "{ACE7FBA9-A161-41AD-B0E0-C0293890C3D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{85AA6241-216F-42AA-9CE4-C3DABC6D0B67}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,8 +23,15 @@ Global
 		{8DB9B147-172A-4280-84B3-F4F51088F873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DB9B147-172A-4280-84B3-F4F51088F873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DB9B147-172A-4280-84B3-F4F51088F873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACE7FBA9-A161-41AD-B0E0-C0293890C3D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE7FBA9-A161-41AD-B0E0-C0293890C3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE7FBA9-A161-41AD-B0E0-C0293890C3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE7FBA9-A161-41AD-B0E0-C0293890C3D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46AC117F-40FA-492E-9876-0262C97F3FEC}
 	EndGlobalSection
 EndGlobal

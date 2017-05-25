@@ -1,0 +1,19 @@
+version: 0.1.{build}
+build:
+  verbosity: minimal
+platform:
+- Any CPU
+configuration:
+- Release
+after_build:
+- 7z a BulkPhotoEdit.zip BulkPhotoEditGui\bin\$(configuration)\*.exe BulkPhotoEditGui\bin\$(configuration)\*.dll
+artifacts:
+- path: BulkPhotoEdit.zip
+  name: Zipped
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: oy9vmWoKGVoCQo1SmAaMu/j8ZEBCMCr7jbkPQ0CdJVwaY0MNwYqi/yqHlH6DIoFG
+  artifact: Zipped
+  on:
+    appveyor_repo_tag: true
