@@ -5,6 +5,8 @@ platform:
 - Any CPU
 configuration:
 - Release
+before_build:
+- nuget restore
 after_build:
 - 7z a BulkPhotoEdit.zip BulkPhotoEditGui\bin\$(configuration)\*.exe BulkPhotoEditGui\bin\$(configuration)\*.dll
 artifacts:
