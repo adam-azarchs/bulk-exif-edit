@@ -8,7 +8,7 @@ configuration:
 before_build:
 - nuget restore
 after_build:
-- 7z a BulkPhotoEdit.zip BulkPhotoEditGui\bin\$(configuration)\*.exe BulkPhotoEditGui\bin\$(configuration)\*.dll
+- 7z a BulkPhotoEdit.zip BulkPhotoEditGui\bin\Release\*.exe BulkPhotoEditGui\bin\Release\*.dll
 artifacts:
 - path: BulkPhotoEdit.zip
   name: Zipped
